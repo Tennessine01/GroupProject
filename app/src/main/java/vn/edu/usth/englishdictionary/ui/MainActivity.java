@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             Intent in;
             switch (position) {
                 case 0:
-                    in = new Intent(getApplication(), SearchActivity.class);
+                    in = new Intent(getApplication(), SearchDictionaryAtivity.class);
                     startActivity(in);
                     break;
                 case 2:
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(in);
                     break;
                 case 1:
-                    in = new Intent(getApplication(), GrammarActivity.class);
+                    in = new Intent(getApplication(), GrammarListActivity.class);
                     startActivity(in);
                     break;
                 case 3:
