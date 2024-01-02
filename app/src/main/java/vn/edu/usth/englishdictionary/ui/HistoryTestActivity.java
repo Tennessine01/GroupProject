@@ -18,11 +18,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 import vn.edu.usth.englishdictionary.R;
-
-import vn.edu.usth.englishdictionary.utils.DataBase;
-
 import vn.edu.usth.englishdictionary.adapter.HistoryApdater;
 import vn.edu.usth.englishdictionary.model.History;
+import vn.edu.usth.englishdictionary.utils.DataBase;
 
 public class HistoryTestActivity extends AppCompatActivity {
     ArrayList<History> arr = null;
@@ -84,20 +82,19 @@ public class HistoryTestActivity extends AppCompatActivity {
 
             @Override
             public boolean onActionItemClicked(android.view.ActionMode mode, MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.delete:
-                        SparseBooleanArray selected = adap.getSelectedIds();//lấy ra các vị trí đã check
-                        for (int i = (selected.size() - 1); i >= 0; i--) {
-                            if (selected.valueAt(i)) {
-                                History lichsu = (History) adap.getItem(selected.keyAt(i));
-                                adap.remove(lichsu);//xóa trong mảng ArryList
-                                delete(lichsu.getId());//xóa trong CSDL
-                            }
+                if (item.getItemId() == R.id.delete) {
+                    SparseBooleanArray selected = adap.getSelectedIds(); // Lấy ra các vị trí đã chọn
+                    for (int i = (selected.size() - 1); i >= 0; i--) {
+                        if (selected.valueAt(i)) {
+                            History lichsu = (History) adap.getItem(selected.keyAt(i));
+                            adap.remove(lichsu); // Xóa trong mảng ArryList
+                            delete(lichsu.getId()); // Xóa trong CSDL
                         }
-                        mode.finish();
-                        return true;
-                    default:
-                        return false;
+                    }
+                    mode.finish();
+                    return true;
+                } else {
+                    return false;
                 }
             }
 
@@ -138,4 +135,3 @@ public class HistoryTestActivity extends AppCompatActivity {
     }
 
 }
-

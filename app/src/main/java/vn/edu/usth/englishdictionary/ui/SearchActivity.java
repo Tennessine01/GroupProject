@@ -22,13 +22,33 @@ import vn.edu.usth.englishdictionary.utils.DataBase;
 
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-
+    TextView txt;
+    TextToSpeech t1;
+    String worl;
+    String mean;
+    DataBase db = new DataBase(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-
+        setContentView(R.layout.tra_tu);
+        txt = findViewById(R.id.tvhientratu);
+        Bundle b = getIntent().getExtras();
+        worl = b.getString("key_Word");
+        mean = b.getString("key_Mean");
+        Lichsu(worl);
+        txt.setText(mean);
+        //hiện tiêu đề;
+        ActionBar ab = getSupportActionBar();
+        //set mầu cho actionBar
+        ab.setTitle(worl);
+        //Hiện nút back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        t1 = new TextToSpeech(getApplicationContext(), status -> {
+            if (status != TextToSpeech.ERROR) {
+                t1.setLanguage(Locale.ENGLISH);
+            }
+        });
 
     }
 
@@ -38,7 +58,45 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.item_search) {
+            Intent in = new Intent(getApplicationContext(), SearchDictionaryAtivity.class);
+            finish();
+            startActivity(in);
+            return true;
+        } else if (item.getItemId() == R.id.itemdoc) {
+            t1.speak(worl, TextToSpeech.QUEUE_FLUSH, null);
+            Toast.makeText(this, "Đang đọc", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void Lichsu(String a) {
+        Cursor c = db.getCursor("select * from LichSuTraTu");
+        int leng = c.getCount();
+        if (leng < 50) {
+            setLS(a, leng);
+        } else {
+            db.ExecuteSQL("delete from LichSuTraTu where ID = 1");// xoa lich sử
+            setLS(a, leng);
+        }
+    }
+
+    //kiểm tra trùng lặp
+    public void setLS(String a, int i) {
+        Cursor c = db.getCursor("select * from LichSuTraTu where work = '" + a + "'");
+        int leng = c.getCount();
+        if (leng == 0) {
+            db.ExecuteSQL("insert into LichSuTraTu values(" + i +1 + ",\"" + a + "\")");
+        }
+    }
 
     @Override
     public boolean onQueryTextSubmit(String query) {

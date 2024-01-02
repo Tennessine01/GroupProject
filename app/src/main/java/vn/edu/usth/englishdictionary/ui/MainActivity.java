@@ -1,18 +1,17 @@
 package vn.edu.usth.englishdictionary.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import vn.edu.usth.englishdictionary.utils.DataBase;
+
 import vn.edu.usth.englishdictionary.R;
 import vn.edu.usth.englishdictionary.adapter.ListView;
+import vn.edu.usth.englishdictionary.utils.DataBase;
 
 public class MainActivity extends AppCompatActivity {
     android.widget.ListView lv;
@@ -48,22 +47,22 @@ public class MainActivity extends AppCompatActivity {
                     in = new Intent(getApplication(), SearchDictionaryAtivity.class);
                     startActivity(in);
                     break;
-                case 2:
-                    in = new Intent(getApplication(), QuestionActivity.class);
-                    startActivity(in);
-                    break;
-                case 1:
-                    in = new Intent(getApplication(), GrammarListActivity.class);
-                    startActivity(in);
-                    break;
-                case 3:
-                    in = new Intent(getApplication(), HistoryTestActivity.class);
-                    startActivity(in);
-                    break;
-                case 4:
-                    in = new Intent(getApplication(), SettingActivity.class);
-                    startActivity(in);
-                    break;
+                    case 2:
+                        in = new Intent(getApplication(), QuestionActivity.class);
+                        startActivity(in);
+                        break;
+                        case 1:
+                            in = new Intent(getApplication(), GrammarListActivity.class);
+                            startActivity(in);
+                            break;
+                            case 3:
+                                in = new Intent(getApplication(), HistoryTestActivity.class);
+                                startActivity(in);
+                                break;
+                                case 4:
+                                    in = new Intent(getApplication(), SettingActivity.class);
+                                    startActivity(in);
+                                    break;
             }
         });
     }

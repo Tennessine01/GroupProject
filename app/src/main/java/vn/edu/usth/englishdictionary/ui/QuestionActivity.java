@@ -22,9 +22,10 @@ import java.util.Date;
 import java.util.Random;
 
 import vn.edu.usth.englishdictionary.R;
-import vn.edu.usth.englishdictionary.model.Question;
 import vn.edu.usth.englishdictionary.adapter.QuestionAdapter;
+import vn.edu.usth.englishdictionary.model.Question;
 import vn.edu.usth.englishdictionary.utils.DataBase;
+import androidx.core.content.ContextCompat;
 
 public class QuestionActivity extends AppCompatActivity {
     ListView lv;
@@ -235,20 +236,14 @@ public class QuestionActivity extends AppCompatActivity {
                     DapAn = getDung(Integer.parseInt(IDCauHoi.getText().toString()));//lấy ra đáp án đúng từ id
                     RadioGroup rg = v.findViewById(R.id.radioGroup);
                     int Check = rg.getCheckedRadioButtonId();
-                    switch (Check) {
-                        //sét mầu đáp án đã tích
-                        case R.id.Radiobt_A:
-                            rA.setTextColor(getResources().getColor(R.color.colorSelect));
-                            break;
-                        case R.id.Radiobt_B:
-                            rB.setTextColor(getResources().getColor(R.color.colorSelect));
-                            break;
-                        case R.id.Radiobt_C:
-                            rC.setTextColor(getResources().getColor(R.color.colorSelect));
-                            break;
-                        case R.id.Radiobt_D:
-                            rD.setTextColor(getResources().getColor(R.color.colorSelect));
-                            break;
+                    if (Check == R.id.Radiobt_A) {
+                        rA.setTextColor(ContextCompat.getColor(QuestionActivity.this, R.color.colorSelect));
+                    } else if (Check == R.id.Radiobt_B) {
+                        rB.setTextColor(ContextCompat.getColor(QuestionActivity.this, R.color.colorSelect));
+                    } else if (Check == R.id.Radiobt_C) {
+                        rC.setTextColor(ContextCompat.getColor(QuestionActivity.this, R.color.colorSelect));
+                    } else if (Check == R.id.Radiobt_D) {
+                        rD.setTextColor(ContextCompat.getColor(QuestionActivity.this, R.color.colorSelect));
                     }
                     if (kiemtra(rA.getText().toString().substring(0, 1), DapAn)) {
                         setDung(1);
@@ -300,4 +295,3 @@ public class QuestionActivity extends AppCompatActivity {
         return dung;
     }
 }
-

@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import vn.edu.usth.englishdictionary.R;
 import vn.edu.usth.englishdictionary.utils.DataBase;
 
-
 public class GrammarActivity extends AppCompatActivity {
     TextView view_ten,view_CauKD,view_CauPD,view_CauNV,view_CachDung,view_ChuY;
     String ten;
@@ -20,7 +19,7 @@ public class GrammarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grammar);
+        setContentView(R.layout.view_nguphap);
         view_ten= findViewById(R.id.view_Ten);
         view_CauKD= findViewById(R.id.view_CauKD);
         view_CauPD= findViewById(R.id.view_CauPD);
