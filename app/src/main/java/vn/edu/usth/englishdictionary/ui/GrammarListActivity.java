@@ -26,7 +26,7 @@ public class GrammarListActivity extends AppCompatActivity implements SearchView
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lv_nguphap);
+        setContentView(R.layout.activity_grammar);
         //hiện tiêu đề;
         ActionBar ab = getSupportActionBar();
         //set mầu cho actionBar
@@ -35,7 +35,7 @@ public class GrammarListActivity extends AppCompatActivity implements SearchView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         lv= findViewById(R.id.lv_ngu_phap);
         arr= new ArrayList<>();
-        adp=new GrammarAdapter(this,R.layout.item_nguphap,arr);
+        adp=new GrammarAdapter(this,R.layout.item_grammar,arr);
         lv.setAdapter(adp);
         load();
         adp.notifyDataSetChanged();

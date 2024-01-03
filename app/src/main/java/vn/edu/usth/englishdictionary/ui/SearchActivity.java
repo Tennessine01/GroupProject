@@ -1,24 +1,29 @@
 package vn.edu.usth.englishdictionary.ui;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import java.text.BreakIterator;
+import java.util.ArrayList;
 import java.util.Locale;
-
-import vn.edu.usth.englishdictionary.R;
 import vn.edu.usth.englishdictionary.utils.DataBase;
+import vn.edu.usth.englishdictionary.R;
 
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -31,7 +36,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tra_tu);
+        setContentView(R.layout.activity_search);
         txt = findViewById(R.id.tvhientratu);
         Bundle b = getIntent().getExtras();
         worl = b.getString("key_Word");
@@ -65,18 +70,54 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
             Intent in = new Intent(getApplicationContext(), SearchDictionaryAtivity.class);
             finish();
             startActivity(in);
-            return true;
-        } else if (item.getItemId() == R.id.itemdoc) {
+            return true;}
+        else if (item.getItemId() == R.id.itemdoc) {
             t1.speak(worl, TextToSpeech.QUEUE_FLUSH, null);
             Toast.makeText(this, "Đang đọc", Toast.LENGTH_SHORT).show();
-            return true;
+            return true;}
+        else if (item.getItemId() == R.id.itemdoc) {
+
         } else if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
+//    private void startSpeechToText() {
+//        try {
+//            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+//            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something...");
+//
+//            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+//        } catch (ActivityNotFoundException e) {
+//            Toast.makeText(getApplicationContext(), "Speech to text not supported on your device", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == REQ_CODE_SPEECH_INPUT) {
+//            if (resultCode == RESULT_OK && data != null) {
+//                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+//                if (result != null && result.size() > 0) {
+//                    String spokenText = result.get(0);
+//                    // You can perform a search with the recognized text here
+//                    // For example, txt.setText(spokenText);
+//                    edtSearch.setText(spokenText);
+//                }
+//            }
+//        }
+//    }
+
 
     public void Lichsu(String a) {
         Cursor c = db.getCursor("select * from LichSuTraTu");

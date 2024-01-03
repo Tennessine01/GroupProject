@@ -53,7 +53,7 @@ public class QuestionActivity extends AppCompatActivity {
         //
         ID = new ArrayList<>();
         arrTest = new ArrayList<>();
-        adap = new QuestionAdapter(QuestionActivity.this, R.layout.item_layout_quiz, arrTest, a);
+        adap = new QuestionAdapter(QuestionActivity.this, R.layout.item_test, arrTest, a);
         lv.setAdapter(adap);
 
         duyet();
@@ -70,7 +70,7 @@ public class QuestionActivity extends AppCompatActivity {
                     a++;
                     setMau();//cập nhật lại đáp án và hiện trên listView
                     TinhDiem();//gọi đến phương thức tính điểm\
-                    adap = new QuestionAdapter(QuestionActivity.this, R.layout.item_layout_quiz, arrTest, a);
+                    adap = new QuestionAdapter(QuestionActivity.this, R.layout.item_test, arrTest, a);
                     lv.setAdapter(adap);
                     Hien(d);
                 });

@@ -49,7 +49,7 @@ public class HistoryActivity extends AppCompatActivity {
         time.setText(t);
         //
         arr = new ArrayList<>();
-        adap = new QuestionAdapter(HistoryActivity.this, R.layout.item_layout_quiz, arrTest, 2, arr);
+        adap = new QuestionAdapter(HistoryActivity.this, R.layout.item_test, arrTest, 2, arr);
         duyet(id);
         IdCheck(idcheck);
         lv.setAdapter(adap);

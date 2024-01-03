@@ -3,12 +3,17 @@ package vn.edu.usth.englishdictionary.ui;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Objects;
 
 import vn.edu.usth.englishdictionary.R;
 import vn.edu.usth.englishdictionary.adapter.HistoryApdater;
@@ -30,18 +37,21 @@ public class HistoryTestActivity extends AppCompatActivity {
     RadioButton rA, rB, rC, rD;
     QuestionActivity mainQuestion = new QuestionActivity();
 
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lich_su_test);
+        setContentView(R.layout.activity_history_test);
         lv = findViewById(R.id.lvHistory);
         arr = new ArrayList<>();
         ActionBar ab = getSupportActionBar();
         //set mầu cho actionBar
-        ab.setTitle("Lịch Sử Test");
+        ab.setTitle("Lịch Sử Luyện tập");
         //Hiện nút back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        adap = new HistoryApdater(this, R.layout.item_lichsu_test, arr);
+        adap = new HistoryApdater(this, R.layout.item_history_test, arr);
         load();
         lv.setAdapter(adap);
         getView();
@@ -57,6 +67,7 @@ public class HistoryTestActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void getView() {
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);//chọn nhiều itome trong ListView

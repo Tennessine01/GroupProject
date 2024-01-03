@@ -19,7 +19,7 @@ public class GrammarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_nguphap);
+        setContentView(R.layout.view_item_grammar);
         view_ten= findViewById(R.id.view_Ten);
         view_CauKD= findViewById(R.id.view_CauKD);
         view_CauPD= findViewById(R.id.view_CauPD);

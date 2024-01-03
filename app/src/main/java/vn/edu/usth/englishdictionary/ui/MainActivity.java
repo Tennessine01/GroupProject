@@ -10,15 +10,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import vn.edu.usth.englishdictionary.R;
-import vn.edu.usth.englishdictionary.adapter.ListView;
+import vn.edu.usth.englishdictionary.adapter.HomeView;
 import vn.edu.usth.englishdictionary.utils.DataBase;
 
 public class MainActivity extends AppCompatActivity {
     android.widget.ListView lv;
     DataBase db = new DataBase(this);
     ArrayList<String> array = null;
-    String[] item = {"Tra Từ Điển Anh-Việt", "Ngữ Pháp","Luyện Tập",  "Lịch sử Luyện Tập", "Cài Đặt"};
-    Integer[] icon = {R.drawable.timkiem,  R.drawable.book2,R.drawable.test, R.drawable.ghi_chu, R.drawable.cai_dat};
+    String[] item = {"Tra Từ Điển Anh-Việt", "Ngữ Pháp","Luyện Tập",  "Lịch Sử Luyện Tập" , "Cài Đặt"};
+    Integer[] icon = {R.drawable.timkiem,  R.drawable.book2,R.drawable.test, R.drawable.history_test,R.drawable.cai_dat};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         //set mầu cho actionBar
         ab.setTitle("Tra Từ Điển");
-        ListView adapter = new ListView(this, array, icon);
+        HomeView adapter = new HomeView(this, array, icon);
         lv = findViewById(R.id.List_item);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener((parent, view, position, id) -> {
@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
                                     in = new Intent(getApplication(), SettingActivity.class);
                                     startActivity(in);
                                     break;
-            }
+
+                    }
         });
     }
 }

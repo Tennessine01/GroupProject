@@ -38,7 +38,7 @@ public class GrammarAdapter extends ArrayAdapter<Grammar> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView= LayoutInflater.from(context).inflate(R.layout.item_nguphap,parent,false);
+        convertView= LayoutInflater.from(context).inflate(R.layout.item_grammar,parent,false);
         ImageView imageView=(ImageView)convertView.findViewById(R.id.imgNguPhap);
         final TextView txtTenNguPhap=(TextView)convertView.findViewById(R.id.txt_TenNguPhap);
         Grammar nguPhap=arr.get(position);
