@@ -36,7 +36,7 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lvquiz);
+        setContentView(R.layout.item_history_test_view);
         lv = findViewById(R.id.lvquiz);
         arrTest = new ArrayList<>();
 

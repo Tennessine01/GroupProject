@@ -158,7 +158,7 @@ public class SearchDictionaryAtivity extends AppCompatActivity implements TextVi
             do {
                 ar.add(c.getString(1));
             } while (c.moveToPrevious());
-            adap = new ArrayAdapter<String>(this, R.layout.history, R.id.itemSearch1, ar);
+            adap = new ArrayAdapter<String>(this, R.layout.history_search, R.id.itemSearch1, ar);
             lv.setAdapter(adap);
         }
     }

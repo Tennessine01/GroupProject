@@ -12,7 +12,7 @@
         android:src="@drawable/done_question"
         android:contentDescription="TODO" />
 
-    <include layout="@layout/lvquiz" />
+    <include layout="@layout/item_history_test_view" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
