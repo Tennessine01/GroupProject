@@ -16,9 +16,6 @@ import java.util.ArrayList;
 import vn.edu.usth.englishdictionary.R;
 import vn.edu.usth.englishdictionary.model.Question;
 
-/**
- * Created by binhn on 3/28/2017.
- */
 
 public class QuestionAdapter extends ArrayAdapter<Question> {
     Context context = null;

@@ -19,6 +19,7 @@ public class ParaphraseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paraphrase);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (android.os.Build.VERSION.SDK_INT > 9)
         {

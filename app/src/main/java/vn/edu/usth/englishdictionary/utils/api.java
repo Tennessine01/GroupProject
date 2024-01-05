@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class api {
     public static ChatMessage apiMethod(String message) {
-        OpenAiService service = new OpenAiService("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");
+        OpenAiService service = new OpenAiService("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");
         List<ChatMessage> messages = new ArrayList<>();
         ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "Paraphrase this paragraph");
         ChatMessage userMessage = new ChatMessage(ChatMessageRole.USER.value(), message);
