@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     android.widget.ListView lv;
     DataBase db = new DataBase(this);
     ArrayList<String> array = null;
-    String[] item = {"Tra Từ Điển Anh-Việt", "Ngữ Pháp","Luyện Tập",  "Lịch Sử Luyện Tập" , "Cài Đặt"};
-    Integer[] icon = {R.drawable.timkiem,  R.drawable.book2,R.drawable.test, R.drawable.history_test,R.drawable.cai_dat};
+    String[] item = {"Tra Từ Điển Anh-Việt", "Ngữ Pháp","Luyện Tập",  "Lịch Sử Luyện Tập" , "Diễn Giải Đoạn Văn" , "Cài Đặt"};
+    Integer[] icon = {R.drawable.timkiem,  R.drawable.book2,R.drawable.test, R.drawable.history_test,R.drawable.paraphrase,R.drawable.cai_dat};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +60,13 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(in);
                                 break;
                                 case 4:
-                                    in = new Intent(getApplication(), SettingActivity.class);
+                                    in = new Intent(getApplication(), ParaphraseActivity.class);
                                     startActivity(in);
                                     break;
+                                    case 5:
+                                        in = new Intent(getApplication(), SettingActivity.class);
+                                        startActivity(in);
+                                        break;
 
                     }
         });
