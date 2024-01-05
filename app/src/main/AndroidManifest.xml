@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,24 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnglishDictionary"
         tools:targetApi="31">
-        <activity android:name=".ui.SplashScreen"
-            android:theme="@style/Theme.EnglishDictionary.NoActionBar"
-            android:exported="true">
+        <activity
+            android:name=".ui.ParaphraseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.EnglishDictionary.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity" />
         <activity
             android:name=".ui.HistoryTestActivity"
-            android:parentActivityName=".ui.MainActivity">
-        </activity>
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.HistoryActivity"
             android:parentActivityName=".ui.HistoryTestActivity"
-            android:theme="@style/Theme.EnglishDictionary.NoActionBar"
-            />
+            android:theme="@style/Theme.EnglishDictionary.NoActionBar" />
         <activity
             android:name=".ui.GrammarListActivity"
             android:parentActivityName=".ui.MainActivity" />
@@ -43,15 +45,14 @@
         <activity
             android:name=".ui.QuestionActivity"
             android:theme="@style/Theme.EnglishDictionary.NoActionBar" />
+        <activity android:name=".ui.SearchActivity" />
         <activity
-            android:name=".ui.SearchActivity"
-            />
-        <activity android:name=".ui.SearchDictionaryAtivity"
+            android:name=".ui.SearchDictionaryAtivity"
             android:parentActivityName=".ui.MainActivity"
-            android:theme="@style/Theme.EnglishDictionary.NoActionBar"
-            />
+            android:theme="@style/Theme.EnglishDictionary.NoActionBar" />
         <activity
             android:name=".ui.SettingActivity"
             android:parentActivityName=".ui.MainActivity" />
     </application>
+
 </manifest>
