@@ -37,5 +37,6 @@ public class ParaphraseActivity extends AppCompatActivity {
             textView.setText(paraphrase);
         });
 
+
     }
 }
