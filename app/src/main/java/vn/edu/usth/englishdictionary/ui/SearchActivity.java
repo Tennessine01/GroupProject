@@ -86,39 +86,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
 
 
-
-
-//    private void startSpeechToText() {
-//        try {
-//            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-//            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something...");
-//
-//            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-//        } catch (ActivityNotFoundException e) {
-//            Toast.makeText(getApplicationContext(), "Speech to text not supported on your device", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == REQ_CODE_SPEECH_INPUT) {
-//            if (resultCode == RESULT_OK && data != null) {
-//                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//                if (result != null && result.size() > 0) {
-//                    String spokenText = result.get(0);
-//                    // You can perform a search with the recognized text here
-//                    // For example, txt.setText(spokenText);
-//                    edtSearch.setText(spokenText);
-//                }
-//            }
-//        }
-//    }
-
-
     public void Lichsu(String a) {
         Cursor c = db.getCursor("select * from LichSuTraTu");
         int leng = c.getCount();
@@ -132,7 +99,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     //kiểm tra trùng lặp
     public void setLS(String a, int i) {
-        Cursor c = db.getCursor("select * from LichSuTraTu where work = '" + a + "'");
+        Cursor c = db.getCursor("select * from LichSuTraTu where tu = '" + a + "'");
         int leng = c.getCount();
         if (leng == 0) {
             db.ExecuteSQL("insert into LichSuTraTu values(" + i +1 + ",\"" + a + "\")");

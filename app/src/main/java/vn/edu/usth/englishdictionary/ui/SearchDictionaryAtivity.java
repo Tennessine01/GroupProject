@@ -164,7 +164,7 @@ public class SearchDictionaryAtivity extends AppCompatActivity implements TextVi
     }
     public void DeleleHistory(String s)
     {
-        db.ExecuteSQL("delete from LichSuTraTu where work = \""+s+"\" ");
+        db.ExecuteSQL("delete from LichSuTraTu where tu = \""+s+"\" ");
     }
     @Override protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);

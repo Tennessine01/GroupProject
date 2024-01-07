@@ -121,7 +121,7 @@ public class QuestionActivity extends AppCompatActivity {
         for (int i = 0; i < ID.size(); i++) {
             idCauhoi = idCauhoi + ID.get(i) + ",";
         }
-        Cursor cu = db.getCursor("Select * from LichSuTest where IDCAUHOI = '" + idCauhoi + "'");
+        Cursor cu = db.getCursor("Select * from LichSuTest where idqueshis = '" + idCauhoi + "'");
         if (cu.getCount() == 0) {
             WriteHistory(getIDHistory(),idCauhoi, IDtich, d);
         }
@@ -153,7 +153,7 @@ public class QuestionActivity extends AppCompatActivity {
     //đọc đọc hỏi ở CSDL đưa vào ArrayLisst theo ID
     public void load(int ID) {
         Question test = new Question();
-        Cursor cu = db.getCursor("select * from Question where ID = '" + ID + "'");
+        Cursor cu = db.getCursor("select * from Question where idcauhoi = '" + ID + "'");
         if (cu.moveToFirst()) {
             do {
                 test.setId(cu.getInt(0));
@@ -195,7 +195,7 @@ public class QuestionActivity extends AppCompatActivity {
     public int getIDHistory()
     {
         int id = 0;
-        Cursor cu = db.getCursor("select id from LichSuTest");
+        Cursor cu = db.getCursor("select idqueshis from LichSuTest");
         if (cu.moveToLast())
         {
             id = cu.getInt(0);

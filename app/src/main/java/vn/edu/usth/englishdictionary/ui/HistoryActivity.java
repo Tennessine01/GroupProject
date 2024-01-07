@@ -58,7 +58,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void load(int ID) {
         Question test = new Question();
-        Cursor cu = db.getCursor("select * from Question where ID = '" + ID + "'");
+        Cursor cu = db.getCursor("select * from Question where idcauhoi = '" + ID + "'");
         if (cu.moveToFirst()) {
             do {
                 test.setId(cu.getInt(0));

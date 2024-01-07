@@ -36,7 +36,7 @@ public class GrammarActivity extends AppCompatActivity {
         //Hiện nút back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if(ten!=null){
-            Cursor cursor=db.getCursor("select * from Gramar where Ten='"+ten+"'");
+            Cursor cursor=db.getCursor("select * from Grammar where Ten='"+ten+"'");
             cursor.moveToFirst();
             view_ten.setText(cursor.getString(1));
             ab.setTitle("Ngữ Pháp: "+cursor.getString(1));

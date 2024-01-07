@@ -142,7 +142,7 @@ public class HistoryTestActivity extends AppCompatActivity {
     }
     public void delete(int id)
     {
-        db.ExecuteSQL("delete from LichSuTest where id = "+id+"");
+        db.ExecuteSQL("delete from LichSuTest where idqueshis = "+id+"");
     }
 
 }

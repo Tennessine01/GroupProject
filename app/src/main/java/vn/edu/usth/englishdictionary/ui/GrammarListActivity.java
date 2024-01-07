@@ -55,7 +55,7 @@ public class GrammarListActivity extends AppCompatActivity implements SearchView
         return super.onOptionsItemSelected(item);
     }
     public void load() {
-        Cursor cur = db.getCursor("Select * from Gramar");
+        Cursor cur = db.getCursor("Select * from Grammar");
         int count =cur.getCount();
         if (cur.moveToFirst()) {
             do {
@@ -71,7 +71,7 @@ public class GrammarListActivity extends AppCompatActivity implements SearchView
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        Cursor cur=db.getCursor("Select * from Gramar where Ten like '%"+newText+"%'");
+        Cursor cur=db.getCursor("Select * from Grammar where Ten like '%"+newText+"%'");
         int count =cur.getCount();
         /*Làm mới lại adp*/
         adp.clear();
