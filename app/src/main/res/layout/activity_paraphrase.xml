@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ParaphraseActivity">
 
     <EditText
         android:id="@+id/send_text_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="0dp"
         android:hint="Input text here"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/send_button_id"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/send_text_id"
         android:text="send"
+        android:background="@drawable/my_button"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/received_text_id"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/send_button_id"
         android:layout_centerHorizontal="true"
         android:text="Paraphrased: "
         android:textSize="20dp"
         android:textStyle="bold" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

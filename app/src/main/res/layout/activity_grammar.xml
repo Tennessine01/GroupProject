@@ -6,7 +6,7 @@
     android:orientation="vertical">
     <ListView
         android:layout_width="match_parent"
-        android:background="#EFF3F4"
+        android:background="#EDECEC"
         android:id="@+id/lv_ngu_phap"
         android:layout_height="match_parent"
 

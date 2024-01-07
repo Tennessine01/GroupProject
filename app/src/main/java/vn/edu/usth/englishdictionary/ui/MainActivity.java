@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     DataBase db = new DataBase(this);
     ArrayList<String> array = null;
     String[] item = {"Tra Từ Điển Anh-Việt", "Ngữ Pháp","Luyện Tập",  "Lịch Sử Luyện Tập" , "Diễn Giải Đoạn Văn" , "Cài Đặt"};
-    Integer[] icon = {R.drawable.timkiem,  R.drawable.book2,R.drawable.test, R.drawable.history_test,R.drawable.paraphrase,R.drawable.cai_dat};
+    Integer[] icon = {R.drawable.timkiem,  R.drawable.grammar,R.drawable.practice, R.drawable.history,R.drawable.paraphrase,R.drawable.cai_dat};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,15 @@ public class MainActivity extends AppCompatActivity {
         for (String a : item) {
             array.add(a);
         }
-        ActionBar ab = getSupportActionBar();
-        //set mầu cho actionBar
-        ab.setTitle("Tra Từ Điển");
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+//        ActionBar ab = getSupportActionBar();
+//        //set mầu cho actionBar
+//        ab.setTitle("Tra Từ Điển");
+
         HomeView adapter = new HomeView(this, array, icon);
         lv = findViewById(R.id.List_item);
         lv.setAdapter(adapter);

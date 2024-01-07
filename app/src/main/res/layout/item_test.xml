@@ -7,17 +7,18 @@
 
     <TextView
         android:id="@+id/txtCauHoi"
-        android:textSize="15sp"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Câu Hỏi"
-        android:textColor="#0095ff" />
+        android:textStyle="bold"
+        android:textColor="@color/primary1" />
     <TextView
         android:id="@+id/txtID"
         android:layout_width="0pt"
         android:layout_height="0pt"
         android:text="..."
-        android:textColor="#0095ff" />
+        android:textColor="@color/primary1" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -60,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10pt"
-        android:textColor="#3e25ff"
+        android:textColor="@color/primary1"
         android:textStyle="bold"
         android:paddingBottom="10pt" />
 
