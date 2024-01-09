@@ -43,12 +43,14 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         mean = b.getString("key_Mean");
         Lichsu(worl);
         txt.setText(mean);
+
+
+        //Hiện nút back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //hiện tiêu đề;
         ActionBar ab = getSupportActionBar();
         //set mầu cho actionBar
         ab.setTitle(worl);
-        //Hiện nút back
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         t1 = new TextToSpeech(getApplicationContext(), status -> {
             if (status != TextToSpeech.ERROR) {
                 t1.setLanguage(Locale.ENGLISH);

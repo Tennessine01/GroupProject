@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/icon_app"
+        android:icon="@drawable/translate"
         android:label="@string/app_name"
         android:roundIcon="@drawable/translate"
         android:supportsRtl="true"
@@ -17,6 +17,10 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.ParaphraseActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.MainActivity"/>
+        <activity
+            android:name=".ui.TranslateActivity"
             android:exported="false"
             android:parentActivityName=".ui.MainActivity"/>
         <activity android:name=".ui.MainActivity"
@@ -44,11 +48,13 @@
         <activity
             android:name=".ui.QuestionActivity"
             android:theme="@style/Theme.EnglishDictionary.NoActionBar" />
-        <activity android:name=".ui.SearchActivity" />
+        <activity
+            android:name=".ui.SearchActivity"
+            android:parentActivityName=".ui.SearchDictionaryAtivity"
+            />
         <activity
             android:name=".ui.SearchDictionaryAtivity"
-            android:parentActivityName=".ui.MainActivity"
-            android:theme="@style/Theme.EnglishDictionary.NoActionBar" />
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.SettingActivity"
             android:parentActivityName=".ui.MainActivity" />

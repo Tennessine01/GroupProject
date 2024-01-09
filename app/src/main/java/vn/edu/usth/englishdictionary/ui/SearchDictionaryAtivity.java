@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public class SearchDictionaryAtivity extends AppCompatActivity implements TextVi
                 SearchTu(a1);
             }
         });
+        //hiện nút back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getSupportActionBar();
+        //set mầu cho actionBar
+        ab.setTitle("Tra Từ Điển");
         //hiện từ gợi ý
         edt.addTextChangedListener(new TextWatcher() {
             @Override
